@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Desk Calculator</title>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
+    <meta name="claude:viewport-fit-sides" content="cover" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+    />
+  </head>
+
+  <body>
+    <div class="app">
+      <section class="calc" aria-label="Calculator">
+        <div class="plate"><b>DC&middot;12</b><span>12 digit</span></div>
+        <div class="lcd">
+          <div class="expr" id="expr" aria-hidden="true"></div>
+          <button
+            class="result"
+            id="result"
+            type="button"
+            role="status"
+            aria-live="polite"
+            aria-label="Result. Press to copy."
+            title="Copy result"
+          >
+            0
+          </button>
+          <span class="toast" id="toast">Copied</span>
+        </div>
+        <div class="pad" id="pad">
+          <button
+            class="k fn"
+            data-k="("
+            type="button"
+            aria-label="Open parenthesis"
+          >
+            (
+          </button>
+          <button
+            class="k fn"
+            data-k=")"
+            type="button"
+            aria-label="Close parenthesis"
+          >
+            )
+          </button>
+          <button class="k fn" data-k="^" type="button" aria-label="Power">
+            x<sup>y</sup>
+          </button>
+          <button
+            class="k fn"
+            data-k="√"
+            type="button"
+            aria-label="Square root"
+          >
+            &radic;
+          </button>
+
+          <button class="k fn" data-k="ac" type="button" aria-label="All clear">
+            AC
+          </button>
+          <button class="k fn" data-k="bs" type="button" aria-label="Backspace">
+            &#9003;
+          </button>
+          <button class="k fn" data-k="%" type="button" aria-label="Percent">
+            %
+          </button>
+          <button class="k op" data-k="÷" type="button" aria-label="Divide">
+            &divide;
+          </button>
+
+          <button class="k" data-k="7" type="button">7</button>
+          <button class="k" data-k="8" type="button">8</button>
+          <button class="k" data-k="9" type="button">9</button>
+          <button class="k op" data-k="×" type="button" aria-label="Multiply">
+            &times;
+          </button>
+
+          <button class="k" data-k="4" type="button">4</button>
+          <button class="k" data-k="5" type="button">5</button>
+          <button class="k" data-k="6" type="button">6</button>
+          <button class="k op" data-k="−" type="button" aria-label="Subtract">
+            &minus;
+          </button>
+
+          <button class="k" data-k="1" type="button">1</button>
+          <button class="k" data-k="2" type="button">2</button>
+          <button class="k" data-k="3" type="button">3</button>
+          <button class="k op" data-k="+" type="button" aria-label="Add">
+            +
+          </button>
+
+          <button
+            class="k fn"
+            data-k="neg"
+            type="button"
+            aria-label="Toggle sign"
+          >
+            &plusmn;
+          </button>
+          <button class="k" data-k="0" type="button">0</button>
+          <button class="k" data-k="." type="button" aria-label="Decimal point">
+            .
+          </button>
+          <button class="k eq" data-k="eq" type="button" aria-label="Equals">
+            =
+          </button>
+        </div>
+        <p class="keys-note">
+          Keyboard: digits, + - * / ^ ( ) %, Enter for equals, Backspace to
+          delete, Esc to clear.
+        </p>
+      </section>
+
+      <aside class="tape" aria-label="History">
+        <div class="tape-head">
+          <h2>Tape</h2>
+          <button class="link" id="clearTape" type="button">Clear tape</button>
+        </div>
+        <ul class="tape-list" id="tapeList"></ul>
+        <p class="tape-empty" id="tapeEmpty">
+          Finished calculations appear here. Tap one to reuse its result.
+        </p>
+      </aside>
+    </div>
+  </body>
+</html>
